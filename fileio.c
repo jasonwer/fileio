@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <bits/types.h> 
 
 int main()
 {
@@ -9,7 +10,7 @@ int main()
 	char	ch = '\0';
 
 	//create file.hole and error check
-	if ((fd = creat("file.hole", 0400)) < 0)  {
+	if ((fd = creat("file.hole", O_RDWR)) < 0)  {
 		perror("creat");
 		exit(1);
 	}
